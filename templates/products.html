@@ -1,6 +1,40 @@
 {% include "/inc/head.html" %}
 
 <h1>Products</h1>
+
+<p>
+Última atualização {{ "now"|date('d/m/Y H:i:s','America/Sao_Paulo') }}
+</p>
+
 <p>List products</p>
+
+<table border=2>
+    <thead>
+        <tr>
+            <th>
+            Product
+            </th>
+            <th>
+            Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>
+                {{product.name}}
+                </td>
+                <td>
+                {{product.price|number_format('2',',','.')}}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan=2>Nenhum produto encontrado</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% include "/inc/footer.html" %}
