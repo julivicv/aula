@@ -3,4 +3,21 @@
 <h1>Products</h1>
 <p>List products</p>
 
+<table border='1'>
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for product in products %}
+			<tr>
+				<td>{{product.name}}</td>
+				<td>${{product.price |number_format(2, ',', '.')}}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 {% include "/inc/footer.html" %}
