@@ -1,0 +1,17 @@
+{# login.html #}
+{% include "/inc/head.html" %}
+<h1>Sign In</h1>
+<form  action="./controllers/valid-sign-in.controler.php" method="POST">
+	<div class="">
+		<label for="user">User:</label>
+		<input type="text" id="user" placeholder="Ex. Jonh Does" name="user"/>
+	</div>
+	<div class="">
+		<label for="password">Password:</label>
+		<input type="password" id="password" placeholder="Your password" name="password"/>
+	</div>
+	<div class="">
+		<input type="submit" value="Sign In">
+	</div>
+</form>
+{% include "/inc/footer.html" %}
