@@ -4,7 +4,7 @@ require("vendor/autoload.php");
 $loader = new \Twig\Loader\FilesystemLoader("./templates");
 $twig = new \Twig\Environment($loader);
 
-$tamplete = $twig->load('products.html');
+$templete = $twig->load('products.html');
 
 $product = [
     [
@@ -25,7 +25,7 @@ $product = [
     ],
 ];
 
-echo $tamplete->render([
+echo $templete->render([
     'title' => 'Product',
     'products' => $product
 ]);
