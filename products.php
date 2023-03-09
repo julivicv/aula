@@ -4,28 +4,28 @@ require("vendor/autoload.php");
 $loader = new \Twig\Loader\FilesystemLoader("./templates");
 $twig = new \Twig\Environment($loader);
 
-$templete = $twig->load('products.html');
+$template = $twig->load('products.html');
 
-$product = [
+$products = [
     [
-        'name' => 'Shoes',
-        'price' => 20
+        'name' => 'Back Scratcher',
+        'price' => 29.99,
     ],
     [
-        'name' => 'Tshirt',
-        'price' => 200
+        'name' => 'Racing Kart',
+        'price' => 1299.99,
     ],
     [
-        'name' => 'Shorts',
-        'price' => 40
+        'name' => 'Toilet Paper',
+        'price' => 3.99,
     ],
     [
-        'name' => 'Carrying Bag',
-        'price' => 150
-    ],
+        'name' => 'Shopping Cart',
+        'price' => 299.99,
+    ]
 ];
 
-echo $templete->render([
+echo $template->render([
     'title' => 'Product',
-    'products' => $product
+    'products' => $products
 ]);
