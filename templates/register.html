@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    {% if login-error %}
+    <span>Usuário ou senha incorretos!</span>
+    {% endif %}
+    <form action="./valid-sign-up.controler.php" method="post">
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="nome" placeholder="Digite seu nome">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu email">
+    </div>
+    <div>
+        <label for="username">Nome de usuário:</label>
+        <input type="text" name="username" id="username" placeholder="Digite seu usuário">
+    </div>
+    <div>
+    <label for="password">Senha:</label>
+        <input type="password" name="password" id="password" placeholder="Digite sua senha">
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="check" name="isAdmin">
+        <label for="check">Admin</label>
+    </div>
+    <button type="submit">Inscrever-se</button>
+</form>
+</body>
+<style>
+h1 {
+    width: 10%;
+    text-align: center;
+    font-family: arial;
+    margin: 0 auto;
+}
+form {
+    width: 20vw;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+form>div,form>button {
+    margin-bottom: 0.5rem;
+}
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+    gap: 0.25rem;
+}
+.checkbox>input {
+    margin: 0;
+}
+</style>
+</html>

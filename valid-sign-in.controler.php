@@ -1,22 +1,26 @@
 <?php
-require('pdo.inc.php');
-$user = $_POST['user'];
-$password = $_POST['password'];
+    require('pdo.inc.php');
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-$userQuery = $pdo->prepare('SELECT * FROM usuarios WHERE username = :user AND senha = :pass');
+    $userQuery = $pdo->prepare('SELECT * FROM usuarios WHERE username = :user');
 
-$userQuery->bindParam(':user', $user);
-$userQuery->bindParam(':pass', $password);
+    $userQuery->bindParam(':user', $user);
 
-$userQuery->execute();
+    $userQuery->execute();
 
-if ($userQuery->rowcount()) {
-    $user = $userQuery->fetch(PDO::FETCH_OBJ);
+    if ($userQuery->rowcount()) {
+        $user = $userQuery->fetch(PDO::FETCH_OBJ);
+        if (!password_verify($pass, $user->senha)) {
+            header("location: signIn.php?erro=2");
+            die;    
+        }
     session_start();
     $_SESSION['auth'] = $user->nome;
     header('location: welcome.php');
     die;
-} else {
-    header("location: signIn.php?erro=1");
-    die;
-}
+    }
+    else{
+        header("location: signIn.php?erro=1");
+        die;    
+    }

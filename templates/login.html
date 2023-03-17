@@ -1,17 +1,37 @@
-{# login.html #}
-{% include "/inc/head.html" %}
-<h1>Sign In</h1>
-<form  action="./valid-sign-in.controler.php" method="POST">
-	<div class="">
-		<label for="user">User:</label>
-		<input type="text" id="user" placeholder="Ex. Jonh Does" name="user"/>
-	</div>
-	<div class="">
-		<label for="password">Password:</label>
-		<input type="password" id="password" placeholder="Your password" name="password"/>
-	</div>
-	<div class="">
-		<input type="submit" value="Sign In">
-	</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    {% if login-error %}
+    <span>Usuário ou senha incorretos!</span>
+    {% endif %}
+    <form action="./valid-sign-in.controler.php" method="post">
+    <input type="text" name="username" placeholder="Digite seu usuário">
+    <input type="password" name="password" placeholder="Digite sua senha">
+    <button type="submit">Logar-se</button>
 </form>
-{% include "/inc/footer.html" %}
+</body>
+<style>
+h1 {
+    width: 10%;
+    text-align: center;
+    font-family: arial;
+    margin: 0 auto;
+}
+form {
+    width: 20vw;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+form>input,form>button {
+    margin-bottom: 0.5rem;
+}
+</style>
+</html>
